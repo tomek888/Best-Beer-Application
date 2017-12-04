@@ -1,13 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>pl.tomek888</groupId>
-  <artifactId>Best_beer</artifactId>
-  <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>Best_beer Maven Webapp</name>
-  <url>http://maven.apache.org</url>
-<properties>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>pl.tomek888</groupId>
+	<artifactId>Best_beer</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Best_beer Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<properties>
 		<org.springframework-version>4.3.7.RELEASE
 		</org.springframework-version>
 		<failOnMissingWebXml>false</failOnMissingWebXml>
@@ -60,7 +60,12 @@
 			<artifactId>spring-data-jpa</artifactId>
 			<version>1.11.1.RELEASE</version>
 		</dependency>
-	
+		<dependency>
+			<groupId>org.mindrot</groupId>
+			<artifactId>jbcrypt</artifactId>
+			<version>0.3m</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>
@@ -74,6 +79,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-    <finalName>Best_beer</finalName>
-  </build>
+		<finalName>Best_beer</finalName>
+	</build>
 </project>
