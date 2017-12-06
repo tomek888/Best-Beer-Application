@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,20 +25,26 @@ public class Rating {
 	
 	private Long overall;
 	
-	private String descriton;
+	private String description;
+	
+	@ManyToOne
+	private User user;
+	
+	@ManyToOne
+	private Beer beer;
 	
 	public Rating() {
 		
 	}
 
-	public Rating(int aroma, int apperance, int taste, int palate, Long overall, String descriton) {
+	public Rating(int aroma, int apperance, int taste, int palate, Long overall, String description) {
 		
 		this.aroma = aroma;
 		this.apperance = apperance;
 		this.taste = taste;
 		this.palate = palate;
 		this.overall = overall;
-		this.descriton = descriton;
+		this.description = description;
 	}
 
 	public int getAroma() {
@@ -80,17 +87,23 @@ public class Rating {
 		this.overall = overall;
 	}
 
-	public String getDescriton() {
-		return descriton;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDescriton(String descriton) {
-		this.descriton = descriton;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public long getId() {
 		return id;
 	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+	
+	
 	
 	
 	

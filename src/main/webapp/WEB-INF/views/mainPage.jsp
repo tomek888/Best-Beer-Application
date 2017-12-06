@@ -13,29 +13,16 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<link rel="stylesheet" type="text/css" href="assets/css/main.css">
 <title>Insert title here</title>
 
 		
 </head>
+<%@    include file="header.jsp"%>
 <body>
+<body class="img" style="background-image: url(<c:url value="static/img/newbeers2.jpeg"/>)">
 
- <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Best beer</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span>${user.username}</a></li>
-      <li><a href="<c:url value="/userReg"/>"><span class="glyphicon glyphicon-log-in"></span> Sing out</a></li>
-    </ul>
-  </div>
-</nav> 
+
 
 		
 

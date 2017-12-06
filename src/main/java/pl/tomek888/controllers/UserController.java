@@ -37,10 +37,9 @@ public class UserController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST,value="/userReg")
-	public String addUser2(@Valid User user, BindingResult result,Model model) {
+	public String addUser2(@Valid User user, BindingResult result,Model model,HttpSession session) {
 		if (result.hasErrors()) {
-			user.setPassword();
-			model.addAttribute("user", user);
+
 			return "addUser";
 
 
@@ -55,6 +54,8 @@ public class UserController {
 				model.addAttribute("user", new User());
 				return "addUser";
 			}
+			
+			session.setAttribute("user", user);
 			return "mainPage";
 		}
 	}
@@ -77,14 +78,16 @@ public class UserController {
 
 			}
 		session.setAttribute("user", user);
-		return "redirect:/mainPage";
+		return "redirect:/userLog";
 		
 		}
 	
 	@RequestMapping(value="/mainPage")
 	public String loggUser1(Model model,HttpSession session) {
-		model.addAttribute(session.getAttribute("user"));
+		model.addAttribute("user",session.getAttribute("user"));
 
 		return "mainPage";
 	}
+	
+	
 	}

@@ -33,8 +33,8 @@
 		<title>Admin</title>
 </head>
 <body>
-
-	<div class="container">
+<body style="background-image: url(<c:url value="static/img/newbeers2.jpeg"/>)">
+	<div class="container" >
 	<div align="center">
     
 			<div class="row main-center">

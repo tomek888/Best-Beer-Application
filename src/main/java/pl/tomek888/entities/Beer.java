@@ -27,10 +27,10 @@ public class Beer {
 	private String style;
 	
 	
-	private BigInteger extract;
+	private Long extract;
 	
 	
-	private BigInteger alcohol;
+	private Long alcohol;
 	
 	private int ibu;
 	
@@ -47,7 +47,7 @@ public class Beer {
 		
 	}
 
-	public Beer(String username, String style, BigInteger extract, BigInteger alcohol, int ibu, String brewery,
+	public Beer(String username, String style, Long extract, Long alcohol, int ibu, String brewery,
 			String bestTemp, String glass, String culinary) {
 		
 		this.username = username;
@@ -77,19 +77,19 @@ public class Beer {
 		this.style = style;
 	}
 
-	public BigInteger getExtract() {
+	public Long getExtract() {
 		return extract;
 	}
 
-	public void setExtract(BigInteger extract) {
+	public void setExtract(Long extract) {
 		this.extract = extract;
 	}
 
-	public BigInteger getAlcohol() {
+	public Long getAlcohol() {
 		return alcohol;
 	}
 
-	public void setAlcohol(BigInteger alcohol) {
+	public void setAlcohol(Long alcohol) {
 		this.alcohol = alcohol;
 	}
 
