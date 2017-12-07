@@ -6,13 +6,16 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.ManyToAny;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.mindrot.jbcrypt.BCrypt;
@@ -41,6 +44,9 @@ public class User {
 	private String password;
 	
 	private String salt;
+	
+	@ManyToMany(fetch = FetchType.EAGER,cascade=CascadeType.REMOVE)
+	private List<Beer> beers;
 	
 	//@NotBlank
 	private boolean enabled;
@@ -114,6 +120,16 @@ public class User {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
+
+	public List<Beer> getBeers() {
+		return beers;
+	}
+
+	public void setBeers(List<Beer> beers) {
+		this.beers = beers;
+	}
+	
+	
 	
 	
 	

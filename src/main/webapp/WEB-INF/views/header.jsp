@@ -27,13 +27,15 @@
       <a class="navbar-brand" href="#">Best beer</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="<c:url value="/mainPage"/>">Home</a></li>
-      <li><a href="<c:url value="/top10beers"/>">Top 10 beers</a></li>
-      <li><a href="#">Page 2</a></li>
+      <li<%--  class="active"--%>><a href="<c:url value="/mainPage"/>"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
+      <li><a href="<c:url value="/top10beers"/>"><span class="glyphicon glyphicon-star"></span>&nbsp;Top 10 beers</a></li>
+      <li><a href="<c:url value="/addBeer"/>"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add new beer</a></li>
+      <li><a href="<c:url value="/findBeer"/>"><span class="glyphicon glyphicon-search"></span>&nbsp; Find beer</a></li>
+      <li><a href="<c:url value="/myBeers"/>"> <span class="glyphicon glyphicon-thumbs-up"></span>&nbsp; My beers</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span>${user.username}</a></li>
-      <li><a href="<c:url value="/userLog"/>"><span class="glyphicon glyphicon-log-in"></span> Sing out</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;${username}</a></li>
+      <li><a href="<c:url value="/logOut"/>"><span class="glyphicon glyphicon-log-in"></span>&nbsp; Sing out</a></li>
     </ul>
   </div>
 </nav> 

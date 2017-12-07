@@ -1,8 +1,11 @@
 package pl.tomek888.controllers;
 
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+import javax.swing.JSpinner.DateEditor;
 import javax.validation.Valid;
 import javax.validation.Validator;
 
@@ -15,7 +18,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import pl.tomek888.entities.Beer;
 import pl.tomek888.entities.User;
+import pl.tomek888.repositories.BeerRepository;
 import pl.tomek888.repositories.UserRepository;
 
 
@@ -25,6 +30,9 @@ public class UserController {
 
 	@Autowired
 	UserRepository userRepository;
+	
+	@Autowired
+	BeerRepository beerRepository;
 
 	@Autowired
 	Validator validator;
@@ -56,7 +64,7 @@ public class UserController {
 			}
 			
 			session.setAttribute("user", user);
-			return "mainPage";
+			return "redirect:/userLog";
 		}
 	}
 
@@ -72,21 +80,45 @@ public class UserController {
 		List<User> users = userRepository.findAll();
 		for(User userLog:users) {
 			if(user.getUsername().equals(userLog.getUsername())&&BCrypt.checkpw(user.getPassword(),userLog.getPassword())){
-			
+				session.setAttribute("user", userLog.getId());
+				session.setAttribute("username", userLog.getUsername());
 				return "mainPage";
 			}
 
 			}
-		session.setAttribute("user", user);
+		
 		return "redirect:/userLog";
 		
 		}
+	
+	
+	
 	
 	@RequestMapping(value="/mainPage")
 	public String loggUser1(Model model,HttpSession session) {
 		model.addAttribute("user",session.getAttribute("user"));
 
 		return "mainPage";
+	}
+	
+	
+	
+	@RequestMapping(value="/logOut")
+	public String logOut(Model model,HttpSession session) {
+		model.addAttribute("user", new User());
+		session.removeAttribute("user");
+		session.removeAttribute("username");
+
+		return "redirect:/userReg";
+	}
+	
+	@RequestMapping("/myBeers")
+	public String myBeers(Model model,HttpSession session) {
+		
+		User user = userRepository.findOne((Long) session.getAttribute("user"));
+		List<Beer> beers = user.getBeers();
+		model.addAttribute("beers", beers);
+		return "myBeers";
 	}
 	
 	

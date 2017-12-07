@@ -32,7 +32,7 @@ public class Beer {
 	
 	private Long alcohol;
 	
-	private int ibu;
+	private Long ibu;
 	
 	private String brewery;
 	
@@ -47,7 +47,7 @@ public class Beer {
 		
 	}
 
-	public Beer(String username, String style, Long extract, Long alcohol, int ibu, String brewery,
+	public Beer(String username, String style, Long extract, Long alcohol, Long ibu, String brewery,
 			String bestTemp, String glass, String culinary) {
 		
 		this.username = username;
@@ -93,11 +93,11 @@ public class Beer {
 		this.alcohol = alcohol;
 	}
 
-	public int getIbu() {
+	public Long getIbu() {
 		return ibu;
 	}
 
-	public void setIbu(int ibu) {
+	public void setIbu(Long ibu) {
 		this.ibu = ibu;
 	}
 

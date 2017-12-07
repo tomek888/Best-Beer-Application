@@ -6,55 +6,65 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
-<script src="<c:url value="/resources/js/scripts.js"/>"></script>
-
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="<c:url value="/resources/css/main.css"/>"/>
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+	
 
 		
 
-		<title>Admin</title>
+		<title>Rate beer</title>
 </head>
 <%@    include file="header.jsp"%>
-<body>
-<body style="background-image: url(<c:url value="static/img/newbeers2.jpeg"/>)">
+<body class="img" style="background-image: url(<c:url value="/static/img/test.jpeg"/>)">
 
 <div class="container">
 <div class="col-md-3">
+
 </div>
 <div class="col-md-6">
-    <div class="form-area">  
+    <div class="form-area"> 
+     
         <form:form   method="post" modelAttribute="rating">
         <br style="clear:both">
-                    <h3 style="margin-bottom: 25px; text-align: center;">Rate beer</h3>
+         <div class="panel-title text-center">
+	               		<h2 class="title">Rate beer</h2>
+	               		<hr />
+	               	</div>
+                    
+                    <input type="hidden" name="id" value=${beerId}  />
+                    
     				<div class="form-group">
-						Aroma <form:input type="numeric" path="aroma" />
+						<div class="col-md-3">Aroma</div><div class="col-md-1"></div><div class="col-md-2">
+						<form:input class="btn btn-warning" type="number" min="1" max="10" step="1" path="aroma" /></div><br>
 					</div>
 					<div class="form-group">
-						Apperance <form:input type="numeric" path="apperance" />
+						<div class="col-md-3">Apperance</div><div class="col-md-1"></div><div class="col-md-2">
+						<form:input class="btn btn-success" type="number" min="1" max="10" step="1" path="apperance" /></div><br>
 					</div>
 					<div class="form-group">
-						Taste <form:input type="numeric" path="taste" />
+						<div class="col-md-3">Taste</div><div class="col-md-1"></div><div class="col-md-2">
+						<form:input class="btn btn-info" type="number" min="1" max="10" step="1" path="taste" /></div><br>
 					</div>
 					<div class="form-group">
-						Palate <form:input type="numeric" path="palate" />
+						<div class="col-md-3">Palate</div><div class="col-md-1"></div><div class="col-md-2">
+						<form:input class="btn btn-danger" type="number" min="1" max="10" step="1" path="palate" /></div><br>
 					</div>
 					<div class="form-group">
-						Overall <form:input type="numeric" path="overall" />
+						<div class="col-md-3">Overall</div><div class="col-md-1"></div><div class="col-md-2">
+						<form:input class="btn btn-primary" type="number" min="1" max="10" step="1" path="overall" /></div><br>
 					</div>
-                    <div class="form-group">
-                    <form:textarea class="form-control" path="description" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7"/>
-                                           
+		
+                    <form:textarea class="form-control" path="description" type="textarea" id="message" placeholder="Opinion" maxlength="140" rows="7"/>
+                         <button type="submit"  class="btn btn-primary pull-right">Submit</button>                  
                     </div>
             
-        <button type="submit"  class="btn btn-primary pull-right">Submit</button>
+        
         </form:form>
     </div>
 </div>

@@ -39,7 +39,7 @@
 
 <div class="container">
 	<div class="row">
-	<h1 class="text-center" >Top 10 beers</h1>
+	<h1 class="text-center">My beers</h1>
 		<div class="table-responsive">
             <table id="main-table" class="table exotic-table">
                 <thead>
@@ -52,7 +52,7 @@
 					      <th scope="col">Extract</th>
 					      <th scope="col">Brewery</th>
 					      <th scope="col">Rate</th>
-					      <th scope="col">Add to my beers</th>
+					     
                     </tr>
                 </thead>
                 <tbody class="text-center">
@@ -66,9 +66,7 @@
 				      <td>${beer.extract} %</td>
 				      <td>${beer.brewery}</td>
 				      <td><a href="<c:url value="/rateBeer/${beer.id}"/>"><button class="btn btn-warning">  Rate </button></a></td>
-				      <td><a href="<c:url value="/addMyBeer/${beer.id}"/>"><button class="btn btn-success">  Add </button></a></td>
-				        <td><a href="<c:url value="/deleteBeer/${beer.id}"/>"><button class="btn btn-danger">  Delete beer </button></a></td>
-				      
+				    <%-- <td><a href="<c:url value="/deleteMyBeer/${beer.id}"/>"><button class="btn btn-danger">  Remove  </button></a></td>--%> 
                     </tr>
                     </c:forEach>
                 </tbody>

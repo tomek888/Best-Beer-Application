@@ -40,7 +40,8 @@
     	<div class="row main-center">
 				<div class="panel-heading">
 	               <div class="panel-title text-center">
-	               		<h1 class="title" style: width="100%">Login panel</h1>
+	               
+	               		<h1 class="title" style: width="100%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login panel</h1>
 	               		<hr />
 	               	</div>
 	               	</div>

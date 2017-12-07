@@ -23,6 +23,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import pl.tomek888.converters.BeerConverter;
+import pl.tomek888.converters.UserConverter;
+
 
 @Configuration
 @EnableWebMvc
@@ -67,23 +70,23 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 		registry.addResourceHandler("/static/**").addResourceLocations("/resources/").setCachePeriod(31556926);
 	}
 
-//	@Override
-//	public void addFormatters(FormatterRegistry registry) {
-//		registry.addConverter(getBrandConverter());
-//		registry.addConverter(getClientConverter());
-//		registry.addConverter(getProductConverter());
-//	}
-//	
-//
-//	@Bean
-//	public BrandConverter getBrandConverter() {
-//		return new BrandConverter();
-//	}
-//
-//	@Bean
-//	public ProductConverter getProductConverter() {
-//		return new ProductConverter();
-//	}
+	@Override
+	public void addFormatters(FormatterRegistry registry) {
+		registry.addConverter(getBeerConverter());
+		registry.addConverter(getUserConverter());
+		
+	}
+	
+
+	@Bean
+	public BeerConverter getBeerConverter() {
+		return new BeerConverter();
+	}
+
+	@Bean
+	public UserConverter getUserConverter() {
+		return new UserConverter();
+	}
 //
 //	@Bean
 //	public ClientConverter getClientConverter() {

@@ -1,5 +1,6 @@
 package pl.tomek888.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,7 +31,7 @@ public class Rating {
 	@ManyToOne
 	private User user;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.REMOVE)
 	private Beer beer;
 	
 	public Rating() {
@@ -102,6 +103,23 @@ public class Rating {
 	public void setId(long id) {
 		this.id = id;
 	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Beer getBeer() {
+		return beer;
+	}
+
+	public void setBeer(Beer beer) {
+		this.beer = beer;
+	}
+	
 	
 	
 	
